@@ -9,7 +9,7 @@ echo "grep" >> monitor_file.base
 echo "ps" >> monitor_file.base
 echo "bash" >> monitor_file.base
 echo "sed" >> monitor_file.base
-echo "kworker" "sed" >> monitor_file.base
+echo "kworker" >> monitor_file.base
 
 for i in 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1
 do

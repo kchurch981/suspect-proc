@@ -1,17 +1,17 @@
 #!/bin/sh
 
 echo "[+] Taking snapshot of running proccesses"
-ps -aux | sed 's/\[/\\[/' | sed 's/\]/\\]/' | grep -v sed | cut -c 65- > monitor_file.base
+ps -aux | sed 's/\[/\\[/' | sed 's/\]/\\]/' | grep -v sed | cut -c 65- | sed 's/(/\\(/' | sed 's/)/\\)/' > monitor_file.base
 
-#cat monitor_file.base
+#Add extra proccesses not to be monitored
 echo "monitor" >> monitor_file.base
 echo "grep" >> monitor_file.base
 echo "ps" >> monitor_file.base
 echo "bash" >> monitor_file.base
 echo "sed" >> monitor_file.base
+echo "kworker" "sed" >> monitor_file.base
 
-
-for i in 10 9 8 7 6 5 4 3 2 1 
+for i in 20 19 18 17 16 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1
 do
 	echo "[+] Building baseline please wait $i seconds"	
 	ps -aux | egrep -vf monitor_file.base

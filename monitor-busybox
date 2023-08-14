@@ -24,6 +24,6 @@ echo "[+] Proccess monitor has started!"
 
 while true; do 
 
-ps -aux | egrep -vf monitor_file.base
+ps -w | egrep -vf monitor_file.base
 
 done 
